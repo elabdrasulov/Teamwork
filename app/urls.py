@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+<<<<<<< HEAD
 from django.urls import path, include
 
 from drf_yasg import openapi
@@ -27,6 +28,27 @@ schema_view = get_schema_view(
     ),
     public=True
 )
+=======
+from django.urls import path
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+
+
+
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Car Auction API",
+        description="...",
+        default_version="v1",
+        
+    ),
+    public=True
+)
+
+
+
+>>>>>>> c4d5f43f4811c8b547f105067cd86ac4dac50055
 
 urlpatterns = [
     path('admin/', admin.site.urls),
