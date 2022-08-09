@@ -17,7 +17,8 @@ class CarViewSet(ModelViewSet):
 
 
 
-class BetViewSet(
+class BetViewSet(mixins.UpdateModelMixin,
+                mixins.ListModelMixin,
                 mixins.DestroyModelMixin,
                 GenericViewSet):
     queryset = Bet.objects.all()

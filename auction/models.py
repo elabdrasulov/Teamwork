@@ -23,6 +23,9 @@ class Car(models.Model):
     def average_price(self):
         prices = [p.price for p in self.bets.all()]
         if prices:
+            for price in prices:
+                if price == 0:
+                    prices.remove(price)
             return sum(prices) / len(prices)
         return 0
 
