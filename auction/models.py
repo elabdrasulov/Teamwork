@@ -26,14 +26,17 @@ class Car(models.Model):
             for price in prices:
                 if price == 0:
                     prices.remove(price)
-            return sum(prices) / len(prices)
+            return round(sum(prices) / len(prices), 2)
         return 0
 
     @property
     def max_price(self):
-        prices = [p.price for p in self.bets.all()]
+        # prices = [p.price for p in self.bets.all()]
+        prices = {str(u.user): p.price for u, p in zip(self.bets.all(), self.bets.all())}
         if prices:
-            return max(prices)
+            max_val = max(prices.values())
+            res = {k:v for k, v in prices.items() if v == max_val}
+            return res
         return 0
 
     def __str__(self):
