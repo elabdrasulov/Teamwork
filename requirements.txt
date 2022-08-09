@@ -2,4 +2,5 @@ django
 psycopg2-binary
 djangorestframework
 python-decouple
-drf-yasg
+drf_yasg
+djangorestframework-simplejwt
